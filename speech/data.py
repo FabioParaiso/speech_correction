@@ -57,5 +57,22 @@ def db_mel_spectrogram(sig, sr, n_fft=1024, hop_length=None, n_mels=64, top_db=8
     db_mel_spectrogram = transforms.AmplitudeToDB(top_db=top_db)(amplitude_mel_spectrogram)
     
     return db_mel_spectrogram
+
+
+def standardize_sampling_rate(sig, new_sr):
+    """Resamples the audio signal to the new sampling rate.
+    
+    Parameters
+    ----------
+    sig : torch.Tensor
+        Tensor containing the amplitude of the signal for the different channels
+    new_sr : int
+        New sampling rate to convert the signal 
+        
+    Returns
+    -------  
+    new_sig : torch.Tensor
+        New signal with the new sampling rate.
+    """
     
     
